@@ -1,0 +1,112 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  background: rgba(15, 15, 15, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid $border-subtle;
+  z-index: 900;
+  width: 100%;
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+  }
+
+  .brand-logo {
+    text-decoration: none;
+    
+    .logo-text {
+      font-family: $font-heading;
+      font-size: 1.35rem;
+      color: $text-primary;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+
+      em {
+        font-style: italic;
+        color: $accent-gold;
+      }
+    }
+  }
+
+  .desktop-nav {
+    display: flex;
+    gap: 2rem;
+
+    @media (max-width: 900px) {
+      display: none; // Hides nav links on smaller screens for clean mobile layout
+    }
+
+    a {
+      color: $text-muted;
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $text-primary;
+      }
+    }
+  }
+
+  .header-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    .header-phone {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: $text-muted;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s ease;
+
+      @media (max-width: 600px) {
+        display: none; // Hide phone number on compact mobile views
+      }
+
+      svg {
+        stroke: $accent-gold;
+      }
+
+      &:hover {
+        color: $accent-gold;
+      }
+    }
+
+    .btn-book-pulse {
+      background: transparent;
+      border: 1px solid $accent-gold;
+      color: $accent-gold;
+      padding: 0.6rem 1.25rem;
+      font-family: $font-body;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+
+      &:hover {
+        background: $accent-gold;
+        color: $bg-obsidian;
+        font-weight: 500;
+      }
+    }
+  }
+}
