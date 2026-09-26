@@ -1,0 +1,126 @@
+.press-testimonial-section {
+  padding: 6rem 0;
+  background-color: darken($bg-obsidian, 1%);
+  border-top: 1px solid $border-subtle;
+  border-bottom: 1px solid $border-subtle;
+  text-align: center;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .press-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 5rem;
+    opacity: 0.65;
+
+    @media (max-width: 768px) {
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .press-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: $text-muted;
+      width: 100%;
+      margin-bottom: -1rem;
+    }
+
+    .press-brand {
+      font-family: $font-heading;
+      font-size: 1.1rem;
+      letter-spacing: 0.25em;
+      color: $text-primary;
+      font-weight: 600;
+    }
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    text-align: left;
+
+    @media (max-width: 900px) {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1.5rem;
+      padding-bottom: 1rem;
+      -webkit-overflow-scrolling: touch;
+
+      // Hide scrollbar for clean aesthetic
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid $border-subtle;
+      padding: 2.5rem;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.3s ease;
+
+      @media (max-width: 900px) {
+        min-width: 85%;
+        scroll-snap-align: center;
+      }
+
+      &:hover {
+        border-color: rgba(197, 160, 89, 0.3);
+      }
+
+      .quote-icon {
+        font-family: $font-heading;
+        font-size: 3rem;
+        color: $accent-gold;
+        line-height: 1;
+        margin-bottom: -0.5rem;
+        opacity: 0.4;
+      }
+
+      .testimonial-quote {
+        font-family: $font-heading;
+        font-size: 1.15rem;
+        font-style: italic;
+        color: $text-primary;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        font-weight: 400;
+      }
+
+      .testimonial-author {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 1rem;
+
+        strong {
+          font-size: 0.9rem;
+          letter-spacing: 0.05em;
+          color: $text-primary;
+        }
+
+        span {
+          font-size: 0.75rem;
+          color: $text-muted;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
