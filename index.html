@@ -1,0 +1,112 @@
+---
+layout: default
+title: "Luxury Hair & Beauty Studio"
+---
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <span class="badge-sub">SoHo, New York — Est. 2024</span>
+      <h1>Precision Artistry meets <em>Effortless Elegance.</em></h1>
+      <p>Welcome to Aura & Atelier. We specialize in bespoke cut, dimensional color, and restorative hair therapy tailored to your individual structure and lifestyle.</p>
+      
+      <div class="hero-actions">
+        <a href="#services" class="tab-btn active" style="background: var(--accent-gold, #c5a059); color: #0f0f0f; font-weight: 600; border-color: #c5a059; text-decoration: none; padding: 0.85rem 2rem; border-radius: 4px; display: inline-block;">Explore Services</a>
+        <a href="#stylists" class="tab-btn" style="text-decoration: none; padding: 0.85rem 2rem; border-radius: 4px; display: inline-block; border: 1px solid #2a2826; color: #f4f1ea;">Meet The Artists</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="{{ 'assets/images/salon/hero-studio.jpg' | relative_url }}" alt="Aura &amp; Atelier SoHo Flagship Studio Interior" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION WITH JEKYLL DATA LOOP -->
+<section id="services" class="services-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Curated Services &amp; Pricing</h2>
+      <p>Select any treatment below to instantly customize and submit your appointment request directly to our concierge.</p>
+    </div>
+
+    <!-- Category Filter Pills -->
+    <div class="category-tabs">
+      <button class="tab-btn active" data-filter="all">All Services</button>
+      {% for group in site.data.services %}
+      <button class="tab-btn" data-filter="{{ group.slug }}">{{ group.category }}</button>
+      {% endfor %}
+    </div>
+
+    <!-- Services Grid -->
+    <div class="services-grid">
+      {% for group in site.data.services %}
+        {% for item in group.items %}
+        <div class="service-card" data-category="{{ group.slug }}">
+          <div class="service-info">
+            <div class="service-meta">
+              <h3>{{ item.name }}</h3>
+              <span class="price">{{ item.price }}</span>
+            </div>
+            <p>{{ item.description }}</p>
+          </div>
+          <div class="service-footer">
+            <span class="duration"><i class="far fa-clock"></i> {{ item.duration }}</span>
+            <button class="btn-select" onclick="openBookingModal('{{ item.name }} ({{ item.price }})')">Select Service</button>
+          </div>
+        </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- STYLIST TEAM SHOWCASE -->
+<section id="stylists" class="stylists-section">
+  <div class="container">
+    <div class="section-header" style="text-align: center; max-width: 600px; margin: 0 auto 4rem;">
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #f4f1ea; margin-bottom: 1rem; font-weight: 400;">The Master Artists</h2>
+      <p style="color: #9e978e; font-size: 1rem;">Our team of international directors, colorists, and structural specialists.</p>
+    </div>
+
+    <div class="services-grid">
+      {% for stylist in site.data.stylists %}
+      <div class="stylist-card">
+        <!-- Stylist Image -->
+        <div class="stylist-image-wrap">
+          <img src="{{ stylist.image | relative_url }}" alt="{{ stylist.name }}">
+        </div>
+
+        <!-- Stylist Info Content -->
+        <div class="stylist-content">
+          <div>
+            <span class="stylist-badge">{{ stylist.role }}</span>
+            <h3>{{ stylist.name }}</h3>
+            <p class="stylist-specialty">Specialty: {{ stylist.specialty }}</p>
+            <p>{{ stylist.bio }}</p>
+          </div>
+          
+          <div class="stylist-footer">
+            <button class="btn-stylist-book" onclick="openBookingModal('Consultation with {{ stylist.name }}')">Book with {{ stylist.name | split: ' ' | first }}</button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION, STUDIO EXPERIENCE & HOURS BLOCK -->
+<section id="experience" style="padding: 5rem 2rem; background-color: #0f0f0f; border-top: 1px solid #2a2826; text-align: center;">
+  <div style="max-width: 600px; margin: 0 auto;" id="location">
+    <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; color: #c5a059; display: block; margin-bottom: 0.5rem;">Visit The Studio</span>
+    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: #f4f1ea; margin-bottom: 1rem; font-weight: 400;">SoHo Flagship Location</h2>
+    <p style="color: #9e978e; margin-bottom: 1.5rem; line-height: 1.6;">482 Broome Street, 2nd Floor<br>New York, NY 10013</p>
+    <p style="color: #9e978e; font-size: 0.9rem; margin-bottom: 2rem;">Tuesday – Saturday: 9:00 AM – 7:00 PM<br>Sunday &amp; Monday: Closed</p>
+    <a href="https://maps.google.com" target="_blank" class="btn-select" style="display: inline-block; padding: 0.75rem 2rem; text-decoration: none;">Open in Apple / Google Maps</a>
+  </div>
+</section>
+
+<!-- BOOKING MODAL COMPONENT INCLUDE -->
+{% include booking_modal.html %}

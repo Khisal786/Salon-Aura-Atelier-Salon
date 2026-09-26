@@ -1,0 +1,14 @@
+title: "Aura & Atelier | Luxury Hair & Beauty Studio"
+email: "concierge@auraatelier.example"
+description: "Bespoke cut, color, and styling studio located in SoHo, New York. Precision artistry meets effortless elegance."
+baseurl: "/Salon-Aura-Atelier-Salon"
+url: "https://khisal786.github.io"
+
+markdown: kramdown
+highlighter: rouge
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"

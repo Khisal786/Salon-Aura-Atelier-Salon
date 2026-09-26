@@ -1,0 +1,173 @@
+.services-section {
+  padding: 4rem 1rem; // Reduced horizontal padding on mobile to prevent overflow
+  background-color: $bg-obsidian;
+  overflow-x: hidden; // Hard stop for any accidental horizontal scroll
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    padding: 0 1rem;
+
+    h2 {
+      font-family: $font-heading;
+      font-size: 2rem;
+      color: $text-primary;
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+    }
+
+    p {
+      color: $text-muted;
+      font-size: 0.95rem;
+    }
+  }
+
+  // Flagship Mobile-Optimized Sticky Category Pills (Horizontal Scroll Row)
+  .category-tabs {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+    position: sticky;
+    top: 75px;
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 0.75rem 1rem;
+    z-index: 10;
+    overflow-x: auto; // Enables smooth horizontal swiping on mobile screens
+    white-space: nowrap;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
+    scrollbar-width: none; // Hide scrollbar for clean aesthetic
+
+    &::-webkit-scrollbar {
+      display: none; // Hide scrollbar for Chrome/Safari
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 1px solid $border-subtle;
+      color: $text-muted;
+      padding: 0.6rem 1.25rem;
+      border-radius: 50px;
+      font-family: $font-body;
+      font-size: 0.85rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+
+      &:hover, &.active {
+        background: $accent-gold;
+        color: $bg-obsidian;
+        border-color: $accent-gold;
+        font-weight: 500;
+      }
+    }
+  }
+
+  // Service Cards Grid
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  .service-card {
+    background: $surface-taupe;
+    border: 1px solid $border-subtle;
+    border-radius: 4px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    width: 100%;
+
+    @media (max-width: 480px) {
+      padding: 1.25rem; // Optimized padding for smaller phones
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: $accent-gold;
+    }
+
+    .service-info {
+      .service-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 0.75rem;
+        gap: 1rem;
+
+        h3 {
+          font-family: $font-heading;
+          font-size: 1.25rem;
+          color: $text-primary;
+          font-weight: 500;
+        }
+
+        .price {
+          font-family: $font-body;
+          font-size: 1.05rem;
+          color: $accent-gold;
+          font-weight: 600;
+          white-space: nowrap;
+        }
+      }
+
+      p {
+        color: $text-muted;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1.25rem;
+      }
+    }
+
+    .service-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 1rem;
+
+      .duration {
+        font-size: 0.8rem;
+        color: $text-muted;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .btn-select {
+        background: transparent;
+        border: 1px solid $accent-gold;
+        color: $accent-gold;
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: $accent-gold;
+          color: $bg-obsidian;
+        }
+      }
+    }
+  }
+}

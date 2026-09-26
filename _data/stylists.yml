@@ -1,0 +1,17 @@
+- name: "Elena Rostova"
+  role: "Creative Director & Master Colorist"
+  specialty: "Dimensional Balayage & Precision Cuts"
+  bio: "With over 12 years in SoHo and Milan fashion weeks, Elena approaches hair as an individual art form."
+  image: "assets/images/salon/stylist-1.jpg"
+
+- name: "Marcus Vance"
+  role: "Senior Styling Specialist"
+  specialty: "Structural Layers & Editorial Blowouts"
+  bio: "Known for his effortless, movement-driven cuts that balance sharp lines with natural texture."
+  image: "assets/images/salon/stylist-2.jpg"
+
+- name: "Chloe Bennett"
+  role: "Color & Treatment Specialist"
+  specialty: "Blonding & Scalp Health Restoration"
+  bio: "An expert in high-lift precision blonding and restorative hair rehabilitation regimens."
+  image: "assets/images/salon/stylist-3.jpg"
